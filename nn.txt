@@ -1,0 +1,17 @@
+private static void close(Statement stat, Connection conn) {
+		try {
+			if (stat != null && !stat.isClosed()) {
+				stat.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null && !conn.isClosed()) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
